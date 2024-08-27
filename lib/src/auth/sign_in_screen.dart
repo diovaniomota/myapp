@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/src/auth/components/custom_text_field.dart';
 import 'package:myapp/src/auth/sign_up_screen.dart';
+import 'package:myapp/src/base/base_screen.dart';
 import 'package:myapp/src/config/custom_colors.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -110,7 +111,12 @@ class SignInScreen extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18),
                             )),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(builder: (c) {
+                            return const BaseScreen();
+                          }));
+                        },
                         child: const Text(
                           'Entrar',
                           style: TextStyle(
@@ -174,7 +180,7 @@ class SignInScreen extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(builder: (c) {
-                              return const SignUpScreen();
+                              return SignUpScreen();
                             }),
                           );
                         },
